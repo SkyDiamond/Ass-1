@@ -16,7 +16,7 @@ public class GameEngine implements GameReporter{
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();		
 	
 	private Timer timer;
-	
+	private long score = 0;
 	private double difficulty = 0.1;
 	
 	public GameEngine(GamePanel gp) {
@@ -56,6 +56,7 @@ public class GameEngine implements GameReporter{
 			if(!e.isAlive()){
 				e_iter.remove();
 				gp.sprites.remove(e);
+				score += 100;
 			}
 		}
 		
@@ -67,4 +68,7 @@ public class GameEngine implements GameReporter{
 		}
 	}
 
+	public long getScore(){
+		return score;
+	}
 }
